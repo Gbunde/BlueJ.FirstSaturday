@@ -71,7 +71,7 @@ public class WriteLoopsTest
     public void Test2to32()
     {
         WriteLoops writeLoo1 = new WriteLoops();
-        assertEquals(16, writeLoo1.byTwoTo32());
+        assertEquals(0, writeLoo1.byTwoTo32());
     }
 
     @Test
@@ -92,7 +92,9 @@ public class WriteLoopsTest
     public void TestHelloZipCode()
     {
         WriteLoops writeLoo1 = new WriteLoops();
-        assertEquals(47, writeLoo1.helloZipCode());
+        int expected = 47;
+        int actual = writeLoo1.helloZipCode();
+        assertEquals(expected, actual);
     }
 
     @Test

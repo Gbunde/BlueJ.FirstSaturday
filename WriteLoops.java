@@ -98,32 +98,38 @@ public class WriteLoops {
                 // calling
                 w = w + 1;
             }
-            return w;
+
         }
+        return w;
+
+        // each time through the inner loop
     }
-    // each time through the inner loop
 
     public int helloZipCode() {
+        System.out.println("\f");
+
         int w = 0;
-
-        // Write a FOR loop that counts from 5 to 105. Put an IF
-        // statement inside the loop that checks the
-        // loop index counter and if it’s greater than 51,
-        // prints “Hello Zipcode” instead of the statement w = w + 1;
-
-        // calling
         for (int i = 5; i < 105; i++){
-            if (i > 51){
 
+            if (i > 51){
                 System.out.println("Hello Zipcode" );
 
             }
             else {
 
                 w = w + 1;
-                // each time through the inner loop
+
+                // Write a FOR loop that counts from 5 to 105. Put an IF
+                // statement inside the loop that checks the
+                // loop index counter and if it’s greater than 51,
+                // prints “Hello Zipcode” instead of the statement w = w + 1;
+
             }
+
+            // calling
+            // each time through the inner loop
         }
+
         return w;
     }
 
@@ -141,7 +147,8 @@ public class WriteLoops {
         do {
             System.out.println("Eww.");
             i = i - 1;
-        } while (i > 0);
+
+        }while (i > 0);
         // what's the primary difference between them?!?
     }
 
@@ -150,13 +157,16 @@ public class WriteLoops {
     // After the loop is done, print “Honey, I’m Home!”
     public int driveHome() {
         int w = 0;
+        while (! gpsCurrentLocation().equals("Home")){
+            driveSomeMore();
 
-        // you need to use a .equals for two Strings.
+            System.out.println("Honey, I'm ;Home!");
 
-        // calling
-        
-        w = w + 1;
-        // each time through the inner loop
+            // you need to use a .equals for two Strings.
+            // calling
+            w = w + 1;
+            // each time through the inner loop
+        }
 
         return w;
     }
@@ -172,12 +182,14 @@ public class WriteLoops {
         int highestScore = 236;
         int currentScore = gameNextScore();
         int runningScore = 0;
+        while (runningScore<highestScore){
+            runningScore += currentScore;
 
-        // do your while loop here
-
-        // calling
-        w = w + 1;
-        // each time through the inner loop
+            // do your while loop here
+            // calling
+            w = w + 1;
+            // each time through the inner loop
+        }
 
         return w; // >= 3;
     }
@@ -189,14 +201,16 @@ public class WriteLoops {
         int highestScore = 236;
         int currentScore = gameNextScore();
         int runningScore = 0;
+        do {
 
-        // do your while loop here
+            // do your while loop here
+        } while (runningScore<highestScore);
 
         // calling
         w = w + 1;
         // each time through the inner loop
 
-        return w >= 3;
+        return w <3;
     }
 
     // Write a WHILE loop that checks “serverIsRunning()” and if true
@@ -206,10 +220,17 @@ public class WriteLoops {
     public int checkServerStatus() {
         int w = 0;
         String adminPhoneNumber = "+1 202 456 1111";
+        while(serverIsRunning()){
+            waitFor(5);
 
-        // calling
-        w = w + 1;
-        // each time through the inner loop
+            // calling
+            w = w + 1;
+            // each time through the inner loop
+        }
+        if(!serverIsRunning()){
+            sendEmergencyText("Help", adminPhoneNumber);
+            tryServerRestart("","");
+        }
 
         return w;
     }
